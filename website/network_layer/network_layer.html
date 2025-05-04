@@ -9,7 +9,9 @@
 <body>
 <main class="stylish">
     <button class="references" onclick="location.href='../references.html'">View references</button>
-    <button class="references" onclick="location.href='https://forms.gle/FjBMvw7Q8roFzBGY8'">Networking Quiz</button>
+    <button class="references" onclick="location.href='https://forms.gle/FjBMvw7Q8roFzBGY8'">Google Forms Networking Quiz</button>
+    <button class="references" onclick="location.href='https://play.kahoot.it/v2/?quizId=2f76af9d-dc20-4225-aef9-012e1cc4671b&hostId=56461012-b319-4ce3-aeff-4a884d8e94e1'">
+    Kahoot Networking Quiz</button>
     <div id="button_list">
         <div id="buttons">
             <nav>
@@ -44,10 +46,22 @@
         <div>
             <div class="IP-Address">
                 <h2>IP Addressing</h2>
-                <article class="regular">You have probably heard of the concept of IP addresses before. Virtually everything you have that is connected
-                to the internet has an IP address, including the neurolink chip that might become everyone's future. These handy little
-                addresses are designed to be globally unique. So if you decide to perform any stunt with your devices that is
-                    considered harmful or illegal, you can never hide.</article>
+                <article class="regular">
+                    You have probably heard of the concept of IP addresses before. Virtually everything you have that is connected
+                    to the internet has an IP address, including the neurolink chip that might become everyone's future. These handy little
+                    addresses are designed to be globally unique. So if you decide to perform any stunt with your devices that is considered harmful or
+                    illegal, you can never hide.
+                </article>
+                <article>
+                    More discussion will be held on this topic a little further down. One of the
+                    biggest vulnerabilities to an IP address is IP spoofing. What is IP spoofing you may ask...great question.
+                    IP spoofing is a technique to fake the source IP of data packets masking their true origin. How does an
+                    adversary do this? Well first off, an attacker generates an IP packet through either specialized tools
+                    or sniffing methods. The attacker alters the packet source IP and replaces it with a random or trusted one.
+                    The packet is then sent as a normal packet to its destination, which in turn identifies the packet as coming
+                    from a reputable source. The attacker uses the spoofed network access to either perform other forms of attack or
+                    to just straight up brick the victim's device.
+                </article>
             </div>
 
             <h2>Routing</h2>
@@ -148,7 +162,7 @@
                     If the next hop is active, then it'll send a reply to the device sending the packet. If it is not active,
                     then the device will have to echo another device or send out broadcast packets. Guess what....attackers
                     use the echo request packet to check if a given device is active, so that they act in malicious ways to the
-                    device.
+                    device. More discussion will be held in the vulnerabilities section.
                 </article>
             </div>
         </div>
@@ -202,6 +216,23 @@
                 floods their machines with packets. Distributed Denial of Service attacks operate in a similar manner, however, its
                 not just one malicious device flooding the network with traffic, its multiple. The difference is the attacker(s) utilize a network
                 of botnets, other infected networked devices, to commence attacks on other networks.
+            </article>
+            <h3>Other vulnerabilities</h3>
+            <h4>Reconnaissance attacks</h4>
+            <article>
+                The devices that are normally targeted in these types of attacks are servers.
+                Reconnaissance attacks are attacks that don't harm the target device at all. However, these style of attacks
+                are designed to gather information on the structure and active status of a network. How does an attacker do this?
+                Similar to how attackers use the ICMP echo request packet to verify if a target device is active or not, attackers use ICMP packets
+                in what's called a ping sweep. With a ping sweep attackers map out any hosts, open ports, and/or services on a
+                network that are currently active. Attackers will normally use Nmap to carry out reconnaissance attacks.
+                Here is the link to <a href="https://nmap.org/book/man.html">NMap</a> documentation, if you want to learn how to scan networks.
+                There are two tools to help you evade or protect your devices against this style of attack. The first tool are
+                TCP wrappers. TCP wrappers act like switches and VLans, however instead of restricting traffic, they restrict
+                the IP addresses that can access network services. The other tool are Intrusion Detection Systems (IDS).
+                An IDS monitors network traffic and filters incoming traffic to your network for any known
+                threats or suspicious activity. There are different styles of IDS's that monitor for different kinds of threats,
+                however that is out of scope for this website.
             </article>
             <h2>Remedies for vulnerabilities</h2>
             <h4>Firewalls</h4>

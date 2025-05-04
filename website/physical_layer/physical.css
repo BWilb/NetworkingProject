@@ -45,16 +45,16 @@ div #buttons{
     color: gold;
     text-align: center;
     margin-top: 10px;
-    margin-right: 70px;
-    margin-left: 70px;
+    margin-right: 50px;
+    margin-left: 50px;
 }
 
 div button {
     flex-grow: 1; /* Makes all buttons take equal space */
     margin: 5px; /* Adds spacing around buttons */
     padding: 10px 15px;
-    margin-left: 55px;
-    margin-right: 55px;
+    margin-left: 30px;
+    margin-right: 30px;
     border: none;
     background-color: darkred;
     color: white;
