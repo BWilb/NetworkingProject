@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="osi.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History of TCP/IP</title>
+</head>
+<body>
+    <div class="container">
+        <button class="references" onclick="location.href='../references.html'">View references</button>
+        <button class="references" onclick="location.href='https://forms.gle/FjBMvw7Q8roFzBGY8'">Networking Quiz</button>
+        <div id="button_list">
+            <div id="buttons">
+                <nav>
+                    <button>
+                        <a href="../main_page/Homepage.html">Home</a>
+                    </button>
+
+                    <button>
+                        <a href="../physical_layer/physical_layer.html">Physical Layer</a>
+                    </button>
+
+                    <button>
+                        <a href="../network_layer/network_layer.html">Network (IP) Layer</a>
+                    </button>
+
+                    <button>
+                        <a href="../transport_layer/transport_layer.html">Transport(TCP) Layer</a>
+                    </button>
+                    <button>
+                        <a href="../application_layer/Application_Layer.html">TCP/IP History</a>
+                    </button>
+                </nav>
+            </div>
+        </div>
+        <h1>History of the TCP/IP model and the OSI model</h1>
+        <h2>Background of TCP/IP and OSI</h2>
+        <article class="history">
+            The creation of the TCP/IP model dates back to the 1970s. The development of the TCP/IP model was in response
+            to the OSI model's failure to stay popular among vendors as well as OSI's comlex structure. According to RFC 793,
+            TCP was designed to provide reliable and securable connections between pairs of processes and devices. IP, according
+            to RFC 791, is designed for use in interconnected systems of packet-switched computer communication systems. IP
+            has two basic functions, the addressing and fragmentation of packets. Before TCP/IP became commonplace, however,
+            the OSI (Open Systems Interconnection Model) was used as previously mentioned.
+        </article>
+        <h2>What is the OSI Model?</h2>
+        <article>
+            The OSI model was the very first networking model. As aforementioned, it didn't take off in popularity, due to its
+            complex size and scale. The OSI model also wasn't able to adapt to the multitude of vendor networking equipment
+            The following are the layers of the OSI model...
+        </article>
+        <h3>Level One: Physical Layer</h3>
+        <article class="l1">
+            At the physical layer, packets and packet data are converted into strings of 1s and 0s. This layer is similar
+            to how the physical layer in TCP operates and is also interacts with most of the same equipment as well.
+        </article>
+        <h3>Level Two: Data Link Layer</h3>
+        <article class="l2">
+            Similar to how the network layer in TCP operates, the data link layer also helps to facilitate data transfer between
+            two devices using the same network. The data link layer is also responsible for flow control and error control, however
+            this layer only manages these two flows when networks are communicating with each other.
+        </article>
+        <h3>Level Three: Network Layer</h3>
+        <article class="l3">
+            The Network Layer is like a branch off of the data link layer. This layer is responsible for facilitating transfer of
+            data when two networks are communicating with each other. This layer also functions to determine the optimal physical
+            path required to packets and their data to the end destination
+        </article>
+        <h3>Level Four: Transport Layer</h3>
+        <article class="l4">
+            The transport layer is responsible for handling end-to-end communication between devices that are interacting with
+            each other. Within the transport layer, the segmented data from the session layer, is reassembled. To control errors,
+            the transport layer also manages the flow of data and any necessary error messages that are sent in response to
+            error events. In order to effectively control errors, the transport layer reviews data to ensure data transfer
+            was done properly.
+        </article>
+        <h3>Level Five: Session Layer</h3>
+        <article class="l5">
+            The session layer handles the opening and closing of the communications between two devices. The term session
+            refers to the time between opening and closing of the device interactions. The session layer is also responsible
+            for synchronizing data transfers through the use of checkpoints.
+        </article>
+        <h3>Level Six: Presentation Layer</h3>
+        <article class="l6">
+            The presentation layer is responsible for preparing data for the application layer. The presentation prepares the
+            data by translating its content into a form that the application layer can read.
+        </article>
+        <h3>Level Seven: Application Layer</h3>
+        <article class="l7">
+            The final layer, application layer, initiates communication between the user and applications that they
+            personally interact with. Data is translated from its syntax into readable strings.
+        </article>
+    </div>
+</body>
+</html>

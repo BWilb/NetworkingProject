@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="application.css">
+    <title>Application Layer</title>
+</head>
+<body>
+<div class="main-content">
+    <button class="references" onclick="location.href='../references.html'">View references</button>
+    <button class="references" onclick="location.href='https://forms.gle/FjBMvw7Q8roFzBGY8'">Networking Quiz</button>
+    <div id="button_list">
+        <div id="buttons">
+            <nav>
+                <button>
+                    <a href="../main_page/Homepage.html">Home</a>
+                </button>
+
+                <button>
+                    <a href="../physical_layer/physical_layer.html">Physical Layer</a>
+                </button>
+
+                <button>
+                    <a href="../network_layer/network_layer.html">Network (IP) Layer</a>
+                </button>
+
+                <button>
+                    <a href="../transport_layer/transport_layer.html">Transport(TCP) Layer</a>
+                </button>
+                <button>
+                    <a href="../history/osi_tcp_history.html">TCP/IP History</a>
+                </button>
+            </nav>
+        </div>
+    </div>
+    <h1>Layer Four: Application Layer</h1>
+        <p>We finally come to the last official layer in the TCP/IP model, the Application Layer. The application layer enables
+        a networked device to access the network and applications, such as email. This is the layer that users interact with.
+        You can think of it as the supermarkets or restaurants that are the frontend to the interstate system.</p>
+        <div class="socket">
+            <h2>Sockets</h2>
+            <article>
+                As you are reading this, you must be wondering to yourself, what is a socket? You might already know if you read
+                ahead. Sockets, better known as TCP sockets, enable connections between an application adn the TCP layer. Socket pairs
+                are used by two applications to send data between each other. Ok...So, how are sockets created you ask.
+                Both receiving and destination sockets are created in the same way. They are created with the IP of the device that is hosting the
+                application along with the port number that the application is running on.
+            </article>
+        </div>
+        <div class="container">
+            <div class="vulnerabilities">
+                <h3>Header Vulnerabilities</h3>
+                <article id="header">
+                    The application header is most prone to buffer overflow attacks. Buffer overflow occurs when an attacker
+                    sends an amount of data that exceeds what the application expects to receive. Not everyone has the capbability
+                    to mitigate buffer overflow attacks. Most of the mitigation techniques, including stack canaries require
+                    that the developers of a given application be educated and aware of the vulnerabilities inside their application.
+                </article>
+                <h3>Protocol Vulnerabilities</h3>
+                <article id="protocol">
+                    Most protocol-based breaches affect the specific application under attack. However, if an adversary were
+                    to breach an application while its being remotely accessed, the adversary could daisy chain off the application
+                    into the computer of the remote user...and that's no good. Protocol attacks are designed by adversaries
+                    to forego authentication mechanisms imposed by the application layer.
+                </article>
+                <h3>Authentication Vulnerabilities</h3>
+                <article id="authentication">
+                    The most common breaches against applications occur against an application's authentication methods.
+                    There are two types of breaches, indirect breaches and direct breaches. Direct attacks occur when adversaries
+                    use an application's authentication piece to attack the application. In-direct attacks occur when adversaries
+                    use the application header, protocol, or traffic to the application to forego application authentication.
+                </article>
+                <h3>Traffic Vulnerabilities</h3>
+                <article id="traffic">
+                    At the application layer, the adversary's goal is to deny user access to any given application. The primary
+                    strategy of adversaries to accomplish this goal is to utilize denial of service attacks.
+                </article>
+            </div>
+
+        </div>
+        
+    </div>
+</body>
+</html>

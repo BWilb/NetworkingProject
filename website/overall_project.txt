@@ -1,0 +1,1042 @@
+HomePage code
+------------------------------------------------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="homepage.css">
+    <title>TCP Cyclone</title>
+</head>
+<body>
+    <div class="intro">
+        <h1>
+            TCP Cyclone
+        </h1>
+        <h2>
+            A comprehensive overview of the TCP/IP model!
+        </h2>
+    </div>
+    <div>
+        <p id="intro">
+            Every day, we interact with networks through electronic devices, whether it is during our everyday hustle and
+            bustle to our quiet movie nights.
+            How often, though, does one stop to think about how we are able to interact with these networks or how our
+            electronic devices are
+            able to share data with other devices?
+
+            Each electronic device from smart toasters to the large servers of Twitter and Snapchat serves as a node on a
+            series of networks.
+            These networks are best represented by the TCP/IP model, which is broken down into four layers.
+        </p>
+        <p style="text-align: center;">
+            The layers of the TCP/IP model are as follows...
+        </p>
+
+        <div id="buttons">
+            <button>
+                <a href="../physical_layer/physical_layer.html">Physical Layer</a>
+            </button>
+
+            <button>
+                <a href="../network_layer/network_layer.html">IP (Network) Layer</a>
+            </button>
+
+            <button>
+                <a href="../transport_layer/transport_layer.html">Transport (TCP) Layer</a>
+            </button>
+
+            <button>
+                <a href="../application_layer/Application_Layer.html">Application Layer</a>
+            </button>
+
+            <button>
+                <a href="../user_layer.html" class="right-button">User Layer</a>
+            </button>
+        </div>
+
+    </div>
+
+</body>
+</html>
+***********************************************************************************************************************
+Homepage CSS
+
+body{
+    background-color: red;
+}
+.intro {
+    border: 100px;
+    border-style: groove;
+    border-color: darkred;
+    border-width: thick;
+    color: gold;
+    text-align: center;
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+body p{
+    font-family: Roboto;
+    margin: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 20px;
+}
+
+h1{
+    text-shadow: 2px 2px 10px orange;
+}
+
+p a:hover{
+    text-decoration: none;
+}
+
+div #buttons {
+    display: flex;
+    flex-direction: column; /* Stacks buttons vertically */
+    align-items: center;
+    justify-content: space-between; /* Evenly spaces buttons */
+}
+
+div button {
+    display: block;
+    flex-grow: 1; /* Makes all buttons take equal space */
+    margin: 5px; /* Adds spacing around buttons */
+    padding: 10px 15px;
+    border: none;
+    background-color: darkred;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+div button a{
+    color: white;
+}
+------------------------------------------------------------------------------------------------------------------------
+Physical Layer HTML code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="information container">
+    <h2>Protocols of the physical layer</h2>
+    <p>
+        At the physical layer, there are two primary protocols. One being wired ethernet and the other being
+        wireless ethernet.
+    </p>
+
+    <!--<div class="wired_protocols_column">
+        <p>
+            Ethernet as previously mentioned, serves as the wired protocol for the Physical layer.
+        </p>
+        <div class="wired_attacks">
+
+        </div>
+
+    </div>
+    <div class="wireless_protocols_column">
+        <div class="wireless_attacks">
+
+        </div>
+    </div>-->
+</div>
+<div class="video container">
+    <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+    </iframe>
+</div>
+</body>
+</html>
+***********************************************************************************************************************
+Physical Layer CSS & Javascript Code
+
+function displayInfo(getType) {
+    //function allows intractability between user and information
+    let content = {
+        hardware: "The hardware controller manages interfaces of the physical medium, conversion of data bytes " +
+            "to bits of data to signals sent across the given medium on the transmit side. The hardware controller" +
+            "is also responsible for controlling access to the medium whenever one or more devices are wanting to talk " +
+            "at once as well as interfacing with the computer system to ensure that software can migrate data into " +
+            "the hardware controller",
+        software: "The software controller manages the buffers that store packets that have been received and those " +
+            "that are waiting to be sent. The software controller also provides the device driver that interfaces with" +
+            "the computer's hardware. What is the device driver? The device driver provides a standard interface " +
+            "between the hardware and operating system. The driver is normally provided by a given vendor.",
+        clear: ""
+    };
+    document.querySelector('.controller_information').innerHTML = content[getType];
+}
+
+function displayEthernet(getSection){
+    let content = {
+        preamble: "Preamble is a sequence of 7 bytes used by the receiver to synchronize its to ethernet frame. " +
+            "This field is inserted by the hardware controller when frame is transmitted. When the packet is received " +
+            "and extracted, this field is removed.",
+        sfd: 'The start frame delimiter is 1 byte long and is used to indicate to the hardware controller when the ' +
+            'preamble cuts off and where the destination address begins within the packet. When the packet is received ' +
+            'and extracted, this field is removed.',
+        destination_address:'The destination address is composed of 6 bytes and is used to identify the networked device ' +
+            'that the packet is being sent to. This field is used by the receiving hardware controller to determine ' +
+            "if the frame should be read. If the address doesn't match the rest of the packet is ignored and " +
+            "the packet is thrown away.",
+        source_address: 'The source address is the hardware address of the sending device. This frame is 6 bytes long ' +
+            'and is supplied to the hardware controller.',
+        type_length: 'This field is 1 byte and is used to identify the lower-layer protocol that should process the ' +
+            'given packet. This type length field has two meanings depending upon its value. If the value is 0x600 ' +
+            'or greater then it is a type field and the value indicates the protocol contained in teh data part of the frame. ' +
+            'If the value is less than 0x600 then the value is the length of the data field.',
+        data: 'The data field is obvious; it contains the data of the packet being sent. This field is limited a minimum of ' +
+            '46 bytes to a maximum of 1500 bytes. These restrictions are put into place to ensure equal access to the media ' +
+            'of the hardware controller as well as ensuring that the collision detection functions properly',
+        fcs: 'The frame check sequence is used to aid in the verification that a packet has not been corrupted.'
+    };
+    document.querySelector('.packet_information').innerHTML = content[getSection];
+}
+
+function displayWireless(getSection){
+    let content = {
+        fc: 'Frame control is a 2 byte value that aids in identifying the packets frame type and other information specific ' +
+            'to the frame',
+        duration: 'duration is a 2 byte value used to manage the frames access control protocol',
+        add1: 'Address one is a 6 byte value used to identify the destination of the transmitted packet. This is used by the hardware controller ' +
+            'to determine if the frame should be read.',
+        add2: 'Address two is a 6 byte address of the transmitting device',
+        add3: 'Address three is a 6 byte value used when access point is part of an extended network where the access point relays traffic',
+        add4: 'Address four is a 6 byte value used when the access point is part of an extended network where the access point will relay traffic',
+        sc: 'The sequence control is a 2 byte value used by the acknowledgement process',
+        data: 'The data field contains the data of the frame, obviously. Unlike wired ethernet, wireless ethernet does not ' +
+            'have a minimum data length, apart from the data field length. The data field length is limited to ' +
+            '2312 bytes.',
+        fcs: "the frame check sequence (FCS for short) field is used to aid in the verification that a frame has not been corrupted during " +
+            "transmission. In order to verify if a frame is valid, the FCS uses what's called a cyclic redundancy check code."
+    };
+    document.querySelector('.wireless_information').innerHTML = content[getSection];
+}
+
+button a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+    background-color: dimgray;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+h1 {
+     text-shadow: 2px 2px 5px black;
+     color: white;
+ }
+div #button_list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Evenly spaces buttons */
+}
+
+div #buttons{
+    border: 100px;
+    border-style: groove;
+    border-color: darkred;
+    border-width: thick;
+    color: gold;
+    text-align: center;
+    margin-top: 10px;
+    margin-right: 70px;
+    margin-left: 70px;
+}
+
+div button {
+    flex-grow: 1; /* Makes all buttons take equal space */
+    margin: 5px; /* Adds spacing around buttons */
+    padding: 10px 15px;
+    margin-left: 55px;
+    margin-right: 55px;
+    border: none;
+    background-color: darkred;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+div button a{
+    color: white;
+}
+.physical_layer_layout{
+    margin-top: 20px;
+}
+.buttons {
+    display: flex;
+    flex-direction: row;    /* Align buttons in a row */
+    gap: 20px;              /* Add space between buttons */
+}
+
+.interactive_buttons {
+    display: flex;
+    flex-direction: column;  /* Stack items vertically */
+    align-items: center;     /* Center items */
+    gap: 10px;               /* Add spacing between elements */
+}
+
+.controller {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: gray;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    text-align: center;
+}
+
+.controller_information {
+    display: block;  /* Ensure it appears below */
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
+    color: darkslategray; /* Adjust for contrast */
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.packet_buttons {
+    display: flex;
+    align-items: flex-start; /* Align buttons to the left */
+    margin-right: 150px;
+    margin-left: 50px;
+    padding-bottom: 10px;
+    gap: 0px;
+}
+
+.packet_information {
+    margin-left: 20px; /* Add slight space between buttons and info */
+    min-width: 300px; /* Ensure enough width */
+    text-align: left; /* Align text for readability */
+    padding: 10px; /* Add some padding */
+    text-align: center;
+    font-size: 20px;
+}
+
+.wireless-controller{
+    display: flex;
+
+}
+
+.wireless_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wireless_buttons {
+    text-align: center; /* Center the text inside the button */
+    display: inline-block;
+
+    flex-direction: column;
+    gap: 10px;
+}
+.wireless-controller{
+    text-align: center;
+}
+
+.wireless_information {
+    margin-left: 0px;
+    text-align: center;
+    flex-grow: 1;
+
+}
+------------------------------------------------------------------------------------------------------------------------
+Network layer HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="network.css">
+    <title>Network Layer</title>
+</head>
+<body>
+<div id="button_list">
+    <div id="buttons">
+        <nav>
+            <button>
+                <a href="../main_page/Homepage.html">Home</a>
+            </button>
+
+            <button>
+                <a href="../physical_layer/physical_layer.html">Physical Layer</a>
+            </button>
+
+            <button>
+                <a href="../transport_layer/transport_layer.html">Transport (TCP) Layer</a>
+            </button>
+
+            <button>
+                <a href="../application_layer/Application_Layer.html">Application Layer</a>
+            </button>
+
+            <button>
+                <a href="../user_layer.html" class="right-button">User Layer</a>
+            </button>
+        </nav>
+    </div>
+</div>
+  <h1>TCP: Network (IP) Layer</h1>
+    <p class="explanation">
+        The second layer in the TCP/IP model is the Network Layer. The network layer is primarily responsible for providing
+        multiple networks to be connected. This layer also enables any capable device to connect to these given network systems.
+        You can think of the network layer almost like the interstate of the internet.
+    </p>
+<section class="network-layer">
+    <div>
+        <p>Within the network layer there are two overarching protocols. These two protocols are IP Version 4 and
+            IP Version 6.</p>
+
+        <div class="IP-Address">
+            <h2>IP Addressing</h2>
+            <article>You have probably heard of the concept of IP addresses before. Virtually everything you have that is connected
+            to the internet has an IP address, including the neurolink chip that might become everyone's future. These handy little
+            addresses are designed to be globally unique. So if you decide to perform any stunt with your devices that is
+                considered harmful or illegal, you can never hide.</article>
+        </div>
+
+        <h2>Routing</h2>
+        <article class="routing">
+            The question now becomes, how does a device enable its messages to be sent over the network. There's the IP address
+            which uniquely identifies the device on the network and the physical address that identifies the device on the outside world.
+            These two things, however, share no relationship, which is where a route table comes to save the day.
+        </article>
+        <div class="IP-packet">
+            <h2>IP Packet Format</h2>
+            <img src="ip.png" height="200" alt="ip packet format">
+            <label class='fields' for="fields">Choose a packet field</label>
+            <select class='fields' name="fields" id="fields" onchange="showField()">
+                <option value="">Choose a packet field</option>
+                <option value="version">Version Number</option>
+                <option value="HLen">Header Length</option>
+                <option value="ServiceType">Type of Service</option>
+                <option value="Length">Length</option>
+                <option value="ID">ID</option>
+                <option value="flag">Flags</option>
+                <option value="Offset">Offset</option>
+                <option value="TTL">Time to Live</option>
+                <option value="Protocol">Protocol</option>
+                <option value="Checksum">Checksum</option>
+                <option value="SRC_IP">Source IP Address</option>
+                <option value="DST_IP">Destination IP Address</option>
+                <option value="Options">Options</option>
+                <option value="Data">Data</option>
+            </select>
+            <div class='field-info' id="field-info">
+
+            </div>
+        </div>
+        <h2>Minor Networking Protocols</h2>
+        <!--design of webpage will be split into divisions per protocol-->
+        <div class='arp'>
+            <h3>Address Resolution Protocol (ARP)</h3>
+            <h4>ARP packet layout</h4>
+            <img class="arp-pic" src="arp.png" height="200" alt="ARP packet layout">
+
+            <label class='arp_drop' for="arp-drop-down">Choose a packet field</label>
+            <select class='arp_drop' name="arp" id="arp-drop-down" onchange="showArpField()">
+                <option value="">Choose a packet field</option>
+                <option value="hw_type">Version Number</option>
+                <option value="protocol_type">Header Length</option>
+                <option value="hlen">Type of Service</option>
+                <option value="plen">Length</option>
+                <option value="operation">ID</option>
+                <option value="sender_hw_address">Flags</option>
+                <option value="sender_ip">Offset</option>
+                <option value="target_hw_address">Time to Live</option>
+                <option value="target_ip_address">Protocol</option>
+            </select>
+            <div class='arp-info' id="arp-info">
+
+            </div>
+        </div>
+        <div class="icmp">
+            <h3>Internet Control Messaging Protocol (ICMP)</h3>
+            <h4>ICMP packet layout</h4>
+            <img src="icmp.png" height="100" alt="ICMP packet layout">
+
+            <label class='icmp_drop' for="icmp-drop">Choose a packet field</label>
+            <select class='icmp_drop' name="icmp" id="icmp-drop" onchange="showICMPField()">
+                <option value="">Choose a packet field</option>
+                <option value="type">Version Number</option>
+                <option value="code">Header Length</option>
+                <option value="checksum">Type of Service</option>
+                <option value="parameter">Length</option>
+            </select>
+            <div class='icmp-info' id="icmp-info">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="network-attacks">
+    <h2>Network Layer attacks</h2>
+</section>
+<script src="ip.js"></script>
+</body>
+</html>
+
+************************************************************************************************************************
+Network Layer Javascript and CSS code
+
+button a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+    background-color: red;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+h1 {
+    text-shadow: 2px 2px 5px black;
+    color: white;
+}
+div #buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Evenly spaces buttons */
+}
+
+div button {
+    flex-grow: 1; /* Makes all buttons take equal space */
+    margin: 5px; /* Adds spacing around buttons */
+    padding: 10px 15px;
+    margin-left: 35px;
+    margin-right: 35px;
+    border: none;
+    background-color: darkred;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+div button a{
+    color: white;
+}
+
+.explanation {
+    margin-right: 100px;
+    margin-left: 100px;
+    font-size: 20px;
+}
+
+div article{
+    margin-right: 100px;
+    margin-left: 100px;
+    font-size: 20px;
+}
+
+.IP-packet{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers items horizontally */
+    justify-content: center; /* Centers items vertically (if needed) */
+    text-align: center;
+    margin-top: 20px; /* Adds spacing from the top */
+}
+
+img {
+    display: block; /* Ensures it takes the full width available */
+    margin-bottom: 10px; /* Adds spacing between the image and the dropdown */
+}
+
+.fields{
+    display: block; /* Makes them appear on a new line */
+    margin-bottom: 5px;
+    align-content: flex-end ;
+    font-size: 16px;
+}
+
+.field-info{
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+.arp_drop{
+    display: block; /* Makes them appear on a new line */
+    margin-bottom: 5px;
+    align-content: flex-end ;
+    font-size: 16px;
+}
+
+.arp-info{
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+.icmp_drop{
+    display: block; /* Makes them appear on a new line */
+    margin-bottom: 5px;
+    align-content: flex-end ;
+    font-size: 16px;
+}
+
+.icmp-info{
+    padding-top: 10px;
+    font-size: 20px;
+}
+.arp_drop{
+    align-content: center;
+}
+
+function showField() {
+    const dropdown = document.getElementById("fields");
+    const infoDiv = document.getElementById("field-info");
+
+    // Packet field descriptions
+    let content = {
+        "": '',
+        version: 'The version field indicates whether the packet operates on Version 4 or 6, that’s it. ' +
+            'It’s also 4 bits long.',
+        HLen: "The Header Length field is the length of the IP header. The default value is 5.",
+        ServiceType: "The service type field was designed to pick a network based on that network's level of service. " +
+            "Essentially, this field is useless and is normally set to zero.",
+        Length: "The length field indicates the length of the packet's payload in bytes.",
+        ID: "The ID field is used to uniquely identify each packet that originates from a specific device. " +
+            "If a packet were to be fragmented then the fragments would receive the same ID as the whole. " +
+            "You can almost think of this field as like a QR code.",
+        flag: "",
+        offset: "The offset field indicates where a specific fragment should be placed in the reassembly buffer",
+        TTL: "The time to live field prevents packets from living forever. TTL executes packets if they have been bouncing " +
+            "around teh internet for a given period of time.",
+        Protocol: "The protocol field indicates the specific upper-layer protocol that will handle the packet. 1 indicates ICMP, " +
+            "6 indicates TCP, and 17 indicates UDP.",
+        Checksum: "",
+        SRC_IP: "Field contains the IP address of the device that the packet originated from.",
+        DST_IP: "Field contains the IP address of the destined device",
+        Options: "The option field is hardly ever used.",
+        Data: "Data is Data and has maximum length of 65,536 minus the header length."
+
+    };
+
+    const selectedField = dropdown.value;
+
+    // Update the infoDiv with the corresponding description
+    infoDiv.innerHTML = content[selectedField] || "Please select a packet field to view details.";
+}
+
+// Attach the event listener when the DOM loads
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("fields").addEventListener("change", showField);
+});
+
+function showArpField() {
+    const dropdown = document.getElementById("arp-drop-down");
+    const infoDiv = document.getElementById("arp-info");
+
+    // Packet field descriptions
+    let content = {
+        "": '',
+        hw_type: 'The Hardware type field is composed of 16 bits. Identifies the type of physical network that the ARP protocol ' +
+            'is used on.',
+        protocol_type: "The protocol type field is composed of 16 bits. This field represents the protocol that is using " +
+            "the ARP protocol.",
+        hlen: "The header length field is composed of 8 bits. This field represents the length of the hardware address in " +
+            "the ARP header.",
+        plen: "The protocol length field is composed of 4 bits. Represents the length of the upper layer protocol addresses.",
+        operation: "The operation field is composed of 16 bits. This field represents whether the ARP packet is a request or reply.",
+        sender_hw_address: "The size of the sender hardware address field is ever changing...but ethernet uses 6 bytes though.",
+        sender_ip: "The Sender protocol address is composed of 4 bytes. This field represents the type of " +
+            "IP address used by the sender.",
+        target_hw_address: "The target hardware address field is variable in size. This field represents the hardware address " +
+            "of the target device.",
+        target_ip_address: "The target hardware address field is variable in size. This field represents the ip address " +
+            "of the target device."
+    };
+
+    const selectedField = dropdown.value;
+
+    // Update the infoDiv with the corresponding description
+    infoDiv.innerHTML = content[selectedField] || "Please select a packet field to view details.";
+}
+
+// Attach the event listener when the DOM loads
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("arp-drop-down").addEventListener("change", showField);
+});
+
+
+function showICMPField() {
+    const dropdown = document.getElementById("icmp-drop");
+    const infoDiv = document.getElementById("icmp-info");
+
+    // Packet field descriptions
+    let content = {
+        "": '',
+        type: 'The type field is composed of 8 bits. This field is used to distinguish between several types of ICMP packets. ' +
+            'Any of these code types may serve more than one function, it all depends upon what the code field displays',
+        code: "The code field is composed 8 bits. The very existence of this field is just to determine the type of the ICMP " +
+            "message that is being used.",
+        checksum: "The checksum field is primarily used for error checking",
+        parameter: "Split with the information field. Space that is allocated to each field is determined by the specific message" +
+            "type."
+    };
+
+    const selectedField = dropdown.value;
+
+    // Update the infoDiv with the corresponding description
+    infoDiv.innerHTML = content[selectedField] || "Please select a packet field to view details.";
+}
+
+// Attach the event listener when the DOM loads
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("icmp-drop").addEventListener("change", showField);
+});
+
+------------------------------------------------------------------------------------------------------------------------
+Transport Layer HTML Code
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="transport.css">
+    <title>Transport Layer</title>
+</head>
+<body>
+<div id="button_list">
+    <div id="buttons">
+        <nav>
+            <button>
+                <a href="../main_page/Homepage.html">Home</a>
+            </button>
+
+            <button>
+                <a href="../physical_layer/physical_layer.html">Physical Layer</a>
+            </button>
+
+            <button>
+                <a href="../network_layer/network_layer.html">Network (IP) Layer</a>
+            </button>
+
+            <button>
+                <a href="../application_layer/Application_Layer.html">Application Layer</a>
+            </button>
+
+            <button>
+                <a href="../user_layer.html" class="right-button">User Layer</a>
+            </button>
+        </nav>
+    </div>
+</div>
+    <h1>TCP: Transport Layer</h1>
+    <div class="tcp-info">
+        <p>
+            The third layer in the TCP/IP model is the Transport (TCP) Layer. So far we have the physical connection established
+            by the physical layer and the digital signature created by the IP layer...so how do we transport data? Very good question
+            and you're in luck, for the TCP layer is the layer that ensures reliable transfer of data and error control.
+        </p>
+        <div class="multiplexing-data-transfer">
+            <h2>Multiplexing</h2>
+            <article>
+                MULTIPLEXING! Wow another new term (if you're new to networks). Multiplexing enables the TCP layer to support
+                multiple applications at the same time. How does the TCP layer do this you may ask?...the answer is a unique
+                id called a port. The TCP layer utilizes a port number and IP address to create a socket. In order for a packet
+                to be sent to another networked device, both the receiving device and the sender device require a socket to
+                be established on the TCP layer. Down below is an image that contains default port numbers readily available.
+            </article>
+            <img src="Screenshot%202025-04-06%20230654.png" alt="common port numbers">
+            <h2>Data Transfer</h2>
+            <article>
+                Unlike the lower layers, the TCP layer handles data far differently. The TCP layer utilizes what's called a
+                stream-oriented service to the application layer. What does this stream-oriented service allow the TCP layer to do?
+                This service enables the application that TCP has established a socket for to send data as a stream of bytes.
+            </article>
+        </div>
+        <div class="tcp-packet">
+            <h2>TCP packet format</h2>
+            <img src="tcp.png" alt="tcp packet format">
+
+            <label class='tcp_drop' for="tcp_drop">Choose a packet field</label>
+            <select class='tcp_drop' name="tcp" id="tcp_drop" onchange="showTCPField()">
+                <option value="">Choose a packet field</option>
+                <option value="srcport">Source Port</option>
+                <option value="dstport">Destination Port</option>
+                <option value="sqnum">Sequence Number</option>
+                <option value="acknum">Acknowledgement Number</option>
+                <option value="hdr_len">Header Length</option>
+                <option value="reserved">Reserved</option>
+                <option value="flags">Flags</option>
+                <option value="window">Window</option>
+                <option value="checksum">Checksum</option>
+                <option value="urgent">Urgent Pointer</option>
+                <option value="options">Options</option>
+            </select>
+            <div class='tcp-p-info' id="tcp-p-info">
+
+            </div>
+
+        </div>
+
+        <h2>Minor TCP protocols</h2>
+
+        <div class="udp-packet">
+            <h3>User Datagram Protocol(UDP)</h3>
+            <h4>Layout of User Datagram Protocol(UDP) packet</h4>
+            <img src='udp.png' height="100" width="800" alt="udp packet format">
+        </div>
+
+        <div class="dns-packet">
+            <h3>Domain Name Server(DNS) Protocol</h3>
+            What is the DNS protocol? the primary idea behind DNS is provide a way to divide devices' names in the internet
+            into a hierarchy controlled by root servers.
+            <h4>Layout of DNS Protocol packet</h4>
+            The DNS packet comes in two forms. The first form is the DNS query packet.
+            <h3>DNS Query Packet</h3>
+            <img src="dns_query.png" alt="dns query packet format">
+            <h3>DNS Response Packet</h3>
+            <img src="dns_response.png" alt="dns response packet format">
+        </div>
+    </div>
+    <script src="tcp.js"></script>
+</body>
+</html>
+
+************************************************************************************************************************
+TCP Javacript & CSS code
+function showTCPField() {
+    const dropdown = document.getElementById("tcp_drop");
+    const infoDiv = document.getElementById("tcp-p-info");
+
+    let content = {
+        "": '',
+        srcport: 'The Source Port Number field is composed of 16 bits. This field is used to identify the sending application.',
+        dstport: "The Destination Port Number field is composed of 16 bits. This field is used to identify the destination application.",
+        sqnum: "The Sequence Number field is composed of 32 bits. This field is used to support data transfer plus flow and error control.",
+        acknum: "The Acknowledgement Number field is composed of 32 bits. This field is used to support data transfer plus flow and error control.",
+        hdr_len: "The Header Length field is composed of 4 bits. This field represents the length of the TCP header in 4-byte words.",
+        reserved: "The Reserved field is composed of 6 bits. This field is usually set to zero.",
+        flags: "The Flags field is composed of 6 bits. This field is used to indicate the type of packet (e.g., SYN, ACK, FIN).",
+        window: "The Window Size field is composed of 16 bits. This field determines how much data can be sent before receiving an acknowledgment.",
+        checksum: "The Checksum field is composed of 16 bits. It provides error-checking for the header and data.",
+        urgent: "The Urgent Pointer field is composed of 16 bits. It indicates where the urgent data ends.",
+        options: "The Options field can be up to 40 bytes and includes optional settings like Maximum Segment Size (MSS)."
+    };
+
+    const selectedField = dropdown.value;
+    infoDiv.innerHTML = content[selectedField] || "Please select a packet field to view details.";
+}
+
+button a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: gray;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+h1 {
+    text-shadow: 2px 2px 5px black;
+    color: white;
+}
+div #buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Evenly spaces buttons */
+}
+
+div button {
+    flex-grow: 1; /* Makes all buttons take equal space */
+    margin: 5px; /* Adds spacing around buttons */
+    padding: 10px 15px;
+    margin-left: 35px;
+    margin-right: 35px;
+    border: none;
+    background-color: darkred;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+div button a{
+    color: white;
+}
+.tcp-info{
+    padding-right: 100px;
+    padding-left: 100px;
+}
+.tcp-info p, article{
+    font-size: 20px;
+}
+.tcp-info{
+    border: 5px solid darkslategray;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+}
+img {
+    padding-top: 20px;
+}
+
+.tcp-packet {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.tcp-packet img {
+    max-width: 100%;
+    height: auto;
+}
+
+.tcp_drop {
+    display: block;
+    margin: 1rem auto;
+    font-size: 1rem;
+    padding: 0.4rem;
+}
+
+.tcp-packet-info {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: #fff; /* Optional for better contrast depending on your background */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+}
+
+------------------------------------------------------------------------------------------------------------------------
+Application Layer HTML code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="application.css">
+    <title>Application Layer</title>
+</head>
+<body>
+<div id="button_list">
+    <div id="buttons">
+        <nav>
+            <button>
+                <a href="../main_page/Homepage.html">Home</a>
+            </button>
+
+            <button>
+                <a href="../physical_layer/physical_layer.html">Physical Layer</a>
+            </button>
+
+            <button>
+                <a href="../network_layer/network_layer.html">Network (IP) Layer</a>
+            </button>
+
+            <button>
+                <a href="../application_layer/Application_Layer.html">Application Layer</a>
+            </button>
+
+            <button>
+                <a href="../user_layer.html" class="right-button">User Layer</a>
+            </button>
+        </nav>
+    </div>
+</div>
+    <h1>TCP: Application Layer</h1>
+    <div class="main-content">
+        <p>We finally come to the last official layer in the TCP/IP model, the Application Layer. The application layer enables
+        a networked device to access the network and applications, such as email.</p>
+        <div class="socket">
+            <h2>Sockets</h2>
+            <article>
+                As you are reading this, you must be wondering to yourself, what is a socket? You might already know if you read
+                ahead.
+            </article>
+        </div>
+        <h2>Application layer protocols</h2>
+
+    </div>
+</body>
+</html>
+************************************************************************************************************************
+Application Layer CSS code
+button a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+    background-color: red;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+h1 {
+    text-shadow: 2px 2px 5px black;
+    color: white;
+}
+div #buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Evenly spaces buttons */
+}
+
+div button {
+    flex-grow: 1; /* Makes all buttons take equal space */
+    margin: 5px; /* Adds spacing around buttons */
+    padding: 10px 15px;
+    margin-left: 35px;
+    margin-right: 35px;
+    border: none;
+    background-color: darkred;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+div button a{
+    color: white;
+}
+
+p, article{
+    font-size: 20px;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+.main-content {
+    border: 5px solid darkslategray;
+    margin-right: 20px;
+    margin-left: 20px;
+}

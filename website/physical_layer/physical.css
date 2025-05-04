@@ -1,0 +1,186 @@
+
+.references{
+    display: inline-block;  /* This makes .references act like a button */
+    margin: 0 5px;
+    padding: 10px 15px;
+    background-color: darkred;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;  /* Remove underlining from links */
+}
+
+button a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+
+
+body {
+    background-color: dimgray;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+h1 {
+     text-shadow: 2px 2px 5px black;
+     color: white;
+ }
+div #button_list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Evenly spaces buttons */
+}
+
+div #buttons{
+    border: 100px;
+    border-style: groove;
+    border-color: darkred;
+    border-width: thick;
+    color: gold;
+    text-align: center;
+    margin-top: 10px;
+    margin-right: 70px;
+    margin-left: 70px;
+}
+
+div button {
+    flex-grow: 1; /* Makes all buttons take equal space */
+    margin: 5px; /* Adds spacing around buttons */
+    padding: 10px 15px;
+    margin-left: 55px;
+    margin-right: 55px;
+    border: none;
+    background-color: darkred;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+div button a{
+    color: white;
+}
+.physical_layer_layout{
+    margin-top: 20px;
+}
+.buttons {
+    display: flex;
+    flex-direction: row;    /* Align buttons in a row */
+    gap: 20px;              /* Add space between buttons */
+}
+
+.interactive_buttons {
+    display: flex;
+    flex-direction: column;  /* Stack items vertically */
+    align-items: center;     /* Center items */
+    gap: 10px;               /* Add spacing between elements */
+}
+
+.controller {
+    padding: 10px 20px;
+    margin-right: 20px;
+    font-size: 16px;
+    background-color: gray;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    text-align: center;
+}
+
+.controller_information {
+    display: block;  /* Ensure it appears below */
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.packet_buttons {
+    display: flex;
+    align-items: flex-start; /* Align buttons to the left */
+    margin-right: 150px;
+    margin-left: 50px;
+    padding-bottom: 10px;
+    gap: 0px;
+}
+
+.packet_information {
+    margin-left: 20px; /* Add slight space between buttons and info */
+    min-width: 300px; /* Ensure enough width */
+    text-align: left; /* Align text for readability */
+    padding: 10px; /* Add some padding */
+    text-align: center;
+    font-size: 20px;
+}
+
+.wireless-controller{
+    display: flex;
+
+}
+
+.wireless_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wireless_buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centers buttons horizontally */
+    gap: 10px;
+}
+.wireless-controller{
+    text-align: center;
+}
+
+.wireless_information {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 300px;
+    text-align: center;
+    flex-grow: 1;
+    font-size: 25px;
+    justify-content: center;  /* centers horizontally */
+    align-items: center;
+
+}
+
+article{
+    padding-top: 20px;
+    font-size: 20px;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+.regular{
+    padding-top: 0px;
+}
+.vulnerabilities{
+    background-color: darkslategray;
+}
+
+.info-container{
+    padding: 10px 50px 50px;
+    background-color: darkslategray;
+    margin: 20px 20px 20px;
+    border-radius: 10px;
+}
+.protocol-info{
+    padding: 10px 50px 50px;
+    background-color: darkslategray;
+    margin: 20px 20px 20px;
+    border-radius: 10px;
+    color: silver;
+}
+
+h2, h3, h4{
+    color: lightslategray;
+}

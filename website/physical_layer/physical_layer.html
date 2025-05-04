@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="physical.css">
+    <title>TCP/IP: Physical Layer</title>
+</head>
+<body>
+<section class="protocol-info">
+    <button class="references">
+        <a href="../references.html">View references</a>
+    </button>
+    <button class="references">
+        <a href="https://forms.gle/FjBMvw7Q8roFzBGY8">Networking Quiz</a>
+    </button>
+    <nav id="button_list">
+        <div id="buttons">
+            <button><a href="../main_page/Homepage.html">Home</a></button>
+            <button><a href="../network_layer/network_layer.html">Network (IP) Layer</a></button>
+            <button><a href="../transport_layer/transport_layer.html">Transport (TCP) Layer</a></button>
+            <button><a href="../application_layer/Application_Layer.html">Application Layer</a></button>
+            <button>
+                <a href="../history/osi_tcp_history.html">TCP/IP History</a>
+            </button>
+        </div>
+    </nav>
+
+    <h1>TCP/IP: Physical Layer</h1>
+    <article>The first layer in the TCP/IP model is the Physical Layer. This layer is designed to provide physical connections
+    to networks. In a highway or interstate system, you can think of the physical layer as the exit ramps, on ramps, and smaller
+    roads that provide traffic a connection to the interstate system.</article>
+        <h2>Layout of the Physical Layer</h2>
+        <img src="physical%20layer.png" height="500" width="400" alt="Physical Layer">
+        <article class="physical_layer_layout">
+            The physical layer consists of two integral parts: the hardware controller and the software controller.
+        </article>
+
+        <div class="interactive_buttons">
+            <div class="buttons">
+                <button class="controller" onclick="displayInfo('hardware')">Hardware Controller</button>
+                <button class="controller" onclick="displayInfo('clear')">Clear</button>
+                <button class="controller" onclick="displayInfo('software')">Software Controller</button>
+            </div>
+            <div class="controller_information" id="controller_information"></div>
+        </div>
+
+
+        <h2>Protocols of the Physical Layer</h2>
+        <p>At the physical layer, there are two primary protocols: wired Ethernet and wireless Ethernet.</p>
+
+        <div class="wired_protocols">
+            <p>Ethernet serves as the wired protocol for the Physical Layer.</p>
+            <div class="wired_packet">
+                <h3>Wired Packet Layout</h3>
+                <img src='Screenshot%202025-03-30%20192912.png' height="150" width="900" alt="Wired Packet Layout">
+
+                <div class="packet_buttons">
+                    <button class="controller" onclick="displayEthernet('preamble')">Preamble</button>
+                    <button class="controller" onclick="displayEthernet('sfd')">SFD</button>
+                    <button class="controller" onclick="displayEthernet('destination_address')">Destination Address</button>
+                    <button class="controller" onclick="displayEthernet('source_address')">Source Address</button>
+                    <button class="controller" onclick="displayEthernet('type_length')">Type/Length</button>
+                    <button class="controller" onclick="displayEthernet('data')">Data</button>
+                    <button class="controller" onclick="displayEthernet('fcs')">FCS</button>
+                </div>
+                <div class="packet_information" id="packet_information">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="wireless_protocols">
+            <div class="wireless_packet">
+                <h3>Wireless Packet Layout</h3>
+                <img src='wireless.png' height="150" width="1000" alt="Wireless Packet Layout">
+                <div class="wireless_container">
+                    <div class="wireless_buttons">
+                        <button class="wireless-controller" onclick="displayWireless('fc')">Frame Control</button>
+                        <button class="wireless-controller" onclick="displayWireless('duration')">Duration</button>
+                        <button class="wireless-controller" onclick="displayWireless('add1')">Address 1</button>
+                        <button class="wireless-controller" onclick="displayWireless('add2')">Address 2</button>
+                        <button class="wireless-controller" onclick="displayWireless('add3')">Address 3</button>
+                        <button class="wireless-controller" onclick="displayWireless('add4')">Address 4</button>
+                        <button class="wireless-controller" onclick="displayWireless('sc')">Sequence Control</button>
+                        <button class="wireless-controller" onclick="displayWireless('data')">Data</button>
+                        <button class="wireless-controller" onclick="displayWireless('fcs')">FCS</button>
+                    </div>
+                    <div class="wireless_information" id="wireless_information">
+                        <!-- Information will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div>
+            <div class="vulnerabilities"></div>
+            <h2>Physical Layer Vulnerabilities</h2>
+            <h3>Protocol Based</h3>
+            <article class="regular">
+                If you're wondering, "is there any way to compromise Wired Ethernet at the protocol level?" If you're thinking yes,
+                you're right...sort of. The protocol of Wired Ethernet is so incredibly simple and its implemented in the physical
+                hardware of your or your victim's computer. There is one way to compromise wired ethernet, which is sabotaging the
+                hardware controller...or breaking physical data lines, whichever sounds more fun to do. Wireless ethernet, you
+                get to have more fun with. One method of attacking wireless ethernet is through war-driving. What is war-driving, you
+                may ask.
+            </article>
+            <article>
+                War-driving is the process of using a broad casted SSID to determine location and availability of
+                access points. It's sort of like driving around the neighborhood and smashing mailboxes, except, instead of
+                smashing mailboxes you're trying to compromise private and federal access points. If you were to war drive an
+                area, the hardware tools that you would need are a mobile device, a wireless network card antenna and a GPS System.
+                You'll also need some sort of software tool. <a href="https://wigle.net/">WiGLE</a>,
+                <a href="https://www.openmoko.org/wiki/OpenBmap">OpenBmap</a>, and <a href="https://www.mapscripting.com/joining-the-geomena-project.html">Geomena</a> are some of the software
+                that could be used. These three websites generate network maps in neighborhoods based upon data that are uploaded
+                to these websites.
+            </article>
+            <article>
+                How do you mitigate war-driving? You would want to secure your access points with the use of network access
+                control. What is network access control? A network access controller is designed to ensure that only valid networked devices can access your
+                network. NACs will be discussed later on in detail.<!--According to <a href="https://nordvpn.com/blog/what-is-wardriving/?msockid=23e2019cb9ab6afa2c021542b8ca6b54">NordVPN</a>
+                you can also use multi-factor authentication, apart from a NAC. Despite how annoying TFA is, being able to weed out potential adversaries
+                is a nice perk.-->
+            </article>
+            <h3>Authentication Based</h3>
+            <article class="regular">
+                In Wired Ethernet, one unique vulnerability is ARP poisoning. Now ARP (Address Resolution Protocol) is an
+                IP layer protocol, however the ARP protocol is used by your device to find the hardware address of other devices,
+                based on the IP of those devices. So ARP poisoning is a vulnerability that can affect both the physical layer and the IP
+                layer. More discussion over ARP poisoning will come in the network layer.
+            </article>
+            <article>
+                Have you ever wanted to kick someone off their own domain (Network)? If so this next attack could be for you! An attacker
+                can screw with their victim's ethernet hardware address domain, by setting their device's source address to the
+                address of their victim's device. If you are the victim of one of these attacks, there really is no good mitigation
+                to the problem, apart from purchasing a new device.
+            </article>
+            <h3>Traffic Based</h3>
+
+            <article class="regular">
+                In both the wired and wireless ethernet world there are two types of traffic based attacks, sniffing and flooding.
+                <br>
+                Have you ever seen videos on Youtube or other streaming services of Tsunamis making landfall and the wave of water
+                wiping everything out in its path. Well with flooding, you're essentially doing the same thing, but with packets
+                not water...even though flooding the victim's house could be a good attack strategy. An attacker essentially
+                generates enormous amounts of broadcast traffic that it slows down the network and reduces the amount of non-spoofed
+                traffic. This is also known as a Denial of Service or Distributed Denial of Service attack, depending upon how
+                many devices are being used to flood the network. The good news is...there is no good news. There is no easy way
+                to mitigate these types of attacks.
+            </article>
+            <article>
+                (Insert sniffing noises here) mmmm your packet traffic smells delicious. At the physical layer, sniffing
+                of un-secured and non-encrypted traffic can occur. In the upper layers, sniffing of packet traffic is more
+                lucrative.
+            </article>
+            <h2>Remedies for vulnerabilities</h2>
+            <h3>VLans</h3>
+            <article class="regular" id="vlan">
+                "What is VLan?", you may ask. VLan stands for Virtual Local Area Network, and this tool enables groups of networked devices
+                to connect to the same network, regardless of location. How does a VLan work? Broken down by <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=581577">Dr. V. Rajaravivarma</a>,
+                VLans function by logically segmenting any given network into different broadcast domains, so that packets are
+                only switched between ports that are designated for the same VLan. Another way to explain what a VLAN does, is that VLANs
+                segregate traffic into virtual networks so that only key users can view the specific traffic flows in those networks.
+                A key component of any VLan, that can, by itself, serve itself as a remedy, is a switch. "filtering and forwarding
+                decisions by packet, based on VLAN metrics defined by network managers, and to communicate this
+                information to other switches and routers within the network" (Rajaravivarma, 50).
+            </article>
+            <h3>NAC</h3>
+            <article class="regular" id="nac">
+                As mentioned earlier NAC stands for network access controller. NACs ensure that only valid devices are allowed to
+                access any given network. If a device is considered to be invalid or suspicious, NACs will either quarantine the device or
+                limit the device to have so much computing resources. As laid out by Cisco, NACs have numerous capabilities, when it comes
+                to rooting out suspicious devices. Two of a NACs capabilities will be discussed here. First off, profiling and visibility.
+                Network access controllers have the ability to recognize and profile users and their devices before the user can
+                become a potential threat. The other capability is guest networking access. With this capability, NACs are able to
+                management guests through a self-service portal. This portal is customizable and is similar to a corporations intranetwork, including
+                authentication of users, user registration, and user sponsoring.
+            </article>
+            <h3>Wired Equivalent Privacy</h3>
+            <article class="regular">
+                WEP or Wired Equivalent Privacy was the early version of Wi-Fi. This standard was developed in 1997,
+                and its ultimate goal was to provide simple security and compliance with encryption export laws. How does WEP work?
+                Between a wireless device and access point there is a shared secret key. This key is used to encrypt data frames.
+                However, the authentication method of the wireless access point is weak and can't authenticate a user...the wireless
+                device sends a message encrypted with WEP's shared key before sending an associated request. Sometimes these keys are
+                used by all devices that communicate through WEP.
+            </article>
+            <h3>Wi-fi Protected Access</h3>
+            <article class="regular">
+                WPA or wifi protected access, was developed to operate in home environments. How does a WPA operate?
+                Similar to how WEP works, wireless devices and access points still share a common password. This password, however,
+                is not used as the encryption key, but the password used to authenticate user(s). Breaking the process down...the wireless device
+                will associate with the access point and then send teh password as a one way hash. As a side note, a hash is the
+                password itself, but the password has been formatted into a fixed string of numbers and letters.  Once the user/wireless device
+                has been authenticated with the access point, a session encryption key is generated to be used for packet exchange
+                between the wireless device and access point.
+            </article>
+        </div>
+    </section>
+</main>
+
+<script src="physical.js"></script>
+</body>
+</html>

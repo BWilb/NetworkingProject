@@ -1,0 +1,70 @@
+body{
+    background-color: dimgray;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+.intro {
+    border: 100px;
+    border-style: groove;
+    border-color: darkred;
+    border-width: thick;
+    color: gold;
+    text-align: center;
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+body p{
+    font-family: Roboto;
+    margin: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 20px;
+}
+
+h1{
+    text-shadow: 2px 2px 10px orange;
+}
+
+p a:hover{
+    text-decoration: none;
+}
+
+div #buttons {
+    display: flex;
+    flex-direction: column; /* Stacks buttons vertically */
+    align-items: center;
+    justify-content: space-between; /* Evenly spaces buttons */
+}
+
+div button {
+    display: block;
+    flex-grow: 1; /* Makes all buttons take equal space */
+    margin: 5px; /* Adds spacing around buttons */
+    padding: 10px 15px;
+    border: none;
+    background-color: darkred;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+div button a{
+    color: white;
+}
+
+.style2{
+    padding: 10px 50px 50px;
+    background-color: darkslategray;
+    margin: 20px 20px 20px;
+    border-radius: 10px;
+    color: silver;
+}
+.references{
+    display: inline-block;
+    margin: 0 5px;
+}

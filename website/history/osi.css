@@ -1,0 +1,52 @@
+body {
+    background-color: dimgray;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+h1 {
+    text-shadow: 2px 2px 5px black;
+    color: white;
+}
+.container {
+    padding: 10px 50px 50px;
+    background-color: darkslategray;
+    margin: 20px 20px 20px;
+    border-radius: 10px;
+    color: silver;
+}
+h2, h3, h4 {
+    color: lightslategray;
+}
+
+div #buttons {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    margin-top: 30px;
+}
+
+div button {
+    flex-grow: 1; /* Makes all buttons take equal space */
+    margin: 5px; /* Adds spacing around buttons */
+    padding: 10px 15px;
+    margin-left: 35px;
+    margin-right: 35px;
+    border: none;
+    background-color: darkred;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+}
+div button a {
+    color: white;
+    text-decoration: none;
+}
+
+.references{
+    display: inline-block;
+    margin: 0 5px;
+}
